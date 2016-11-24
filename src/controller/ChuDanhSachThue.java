@@ -38,6 +38,7 @@ public class ChuDanhSachThue extends HttpServlet {
 		List<Thue> list = null;
 		list = DanhSachThueBO.getThueList("aa");
 		request.setAttribute("danhSachThue", list);
+		
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/chu.jsp");  
 	    dispatcher.forward(request, response);
 	}

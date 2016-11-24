@@ -1,3 +1,5 @@
+<%@page import="bean.Thue"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,11 +50,11 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="chu.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
-			<li><a href="chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
-			<li><a href="quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
-			<li><a href="quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
-			<li><a href="quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
+			<li class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
+			<li><a href="<%=request.getContextPath() %>/chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
+			<li><a href="<%=request.getContextPath() %>/quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
+			<li><a href="<%=request.getContextPath() %>/quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
+			<li><a href="<%=request.getContextPath() %>/quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -71,7 +73,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"></div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table"   data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="" data-checkbox="true" ></th>
@@ -84,6 +86,24 @@
 						        <th data-field="xacnhan" data-sortable="true">Xác nhận</th>
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<Thue> listT = (List<Thue>)request.getAttribute("danhSachThue");
+						    		for(Thue item: listT){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getSan()%></td>
+						    		<td><%=item.getNguoiThue()%></td>
+						    		<td><%=item.getNguoiThue().getSdt()%></td>
+						    		<td><%=item.getGioBatDau()%></td>
+						    		<td><%=item.getGioKetThuc()%></td>
+						    		<td><%=item.getNgay()%></td>
+						    	</tr>
+						    	<%
+						    	}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>
