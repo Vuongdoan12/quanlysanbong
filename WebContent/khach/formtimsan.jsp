@@ -43,7 +43,7 @@
 		</form>
 		<ul class="nav menu">
 			<li><a href="khach.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
-			<li class="active"><a href="formtimsan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
+			<li class="active"><a href="TimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
 			<li><a href="quanlisandat.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
 			<li><a href="quanlitran.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
 			<li><a href="quanlitaikhoan.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
@@ -59,39 +59,79 @@
 			</ol>
 		</div><!--/.row-->
 <div class="container"> 
-<form class="form-horizontal">
+<form class="form-horizontal" action = "DanhSachSanTrong">
  <h1 class="text-center">TÌM SÂN</h1> 
  <div class="row"> 
   <div class="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3"> 
   	<div class="sign-form">
-    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Địa chỉ" id="signin-diachi"> </div> 
-    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Loại" id="signin-loai"> </div>
+    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Địa chỉ" id="timsan-diachi" name = "diaChi"> </div> 
+    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Loại" id="timsan-loai" name = "loai"> </div>
   	<div class="form-group">
   	<label> Giờ bắt đầu</label>
-  	<select name ="tinhtrang">
-  	<option value="0" selected = "seleted">----Chọn----</option>
-  	<option value="1">5h30</option>
-  	<option value="2">6h30</option>
-  	<option value="3">7h30</option>
+  	<select name ="gioBatDau">
+  	<option value="1" selected = "seleted">1h30</option>
+  	<option value="2">2h30</option>
+  	<option value="3">3h30</option>
+  	<option value="4">4h30</option>
+  	<option value="5">5h30</option>
+  	<option value="6">6h30</option>
+  	<option value="7">7h30</option>
+  	<option value="8">8h30</option>
+  	<option value="9">9h30</option>
+  	<option value="10">10h30</option>
+  	<option value="11">11h30</option>
+  	<option value="12">12h30</option>
+  	<option value="13">13h30</option>
+  	<option value="14">14h30</option>
+  	<option value="15">15h30</option>
+  	<option value="16">16h30</option>
+  	<option value="17">17h30</option>
+  	<option value="18">18h30</option>
+  	<option value="19">19h30</option>
+  	<option value="20">20h30</option>
+  	<option value="21">21h30</option>
+  	<option value="22">22h30</option>
+  	<option value="23">23h30</option>
+  	<option value="0">0h30</option>
   	</select>
   	</div>
   	<div class="form-group">
   	<label> Giờ kết thúc</label>
-  	<select name ="tinhtrang">
-  	<option value="0" selected = "seleted">----Chọn----</option>
-  	<option value="1">5h30</option>
-  	<option value="2">6h30</option>
-  	<option value="3">7h30</option>
+  	<select name ="gioKetThuc">
+  	<option value="1" selected = "seleted">1h30</option>
+  	<option value="2">2h30</option>
+  	<option value="3">3h30</option>
+  	<option value="4">4h30</option>
+  	<option value="5">5h30</option>
+  	<option value="6">6h30</option>
+  	<option value="7">7h30</option>
+  	<option value="8">8h30</option>
+  	<option value="9">9h30</option>
+  	<option value="10">10h30</option>
+  	<option value="11">11h30</option>
+  	<option value="12">12h30</option>
+  	<option value="13">13h30</option>
+  	<option value="14">14h30</option>
+  	<option value="15">15h30</option>
+  	<option value="16">16h30</option>
+  	<option value="17">17h30</option>
+  	<option value="18">18h30</option>
+  	<option value="19">19h30</option>
+  	<option value="20">20h30</option>
+  	<option value="21">21h30</option>
+  	<option value="22">22h30</option>
+  	<option value="23">23h30</option>
+  	<option value="0">0h30</option>
   	</select>
   	</div>
   	<div class="form-group"> 
     	<label> Ngày:</label>
-  		<input required="" type="date" value="" id="signin-ngay"> 
+  		<input required="" type="date" value="" id="signin-ngay" name = "ngay"> 
     </div>   	
 </div>
     <div>
-    	<a href=""><button type="submit" class="btn btn-info">Tìm sân trống</button></a>
-    	<a href=""><button type="reset" class="btn btn-info">Tìm trận</button></a>
+    	<button type = "submit" value = "1" name = "bttimsan">Tìm Sân</button>
+    	<button type = "submit" value = "2" name = "bttimtran">Tìm Trận</button>
   	</div>
   </div>
   </div>

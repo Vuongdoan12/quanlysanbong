@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="khach.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
-			<li><a href="formtimsan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
+			<li><a href="TimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
 			<li><a href="quanlisandat.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
 			<li><a href="quanlitran.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
 			<li><a href="quanlitaikhoan.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
@@ -71,7 +72,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">DANH SÁCH KHUYẾN MÃI</div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table"   data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="" data-checkbox="true" ></th>
@@ -80,9 +81,21 @@
 						        <th data-field="ngaybatdau" data-sortable="true">Ngày bắt đầu</th>
 						        <th data-field="ngayketthuc" data-sortable="true">Ngày kết thúc</th>
 						        <th data-field="noidung" data-sortable="true">Nội dung</th>
-						        <th data-field="thamgia" data-sortable="true">Tham gia</th>
+						       
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<c:forEach items="${danhSachKhuyenMai}" var="km" >
+          							<tr>
+          	 							<td>aaaa</td>
+          	 							<td>${km.chuSan.ten}</td>
+          	 							<td>${km.chuSan.diaChi}</td>
+          	 							<td>${km.ngayBatDau}</td>
+             							<td>${km.ngayKetThuc}</td>
+             							<td>${km.noiDung}</td>
+          							</tr>
+       							</c:forEach>
+						    </tbody>
 						</table>
 					</div>
 				</div>

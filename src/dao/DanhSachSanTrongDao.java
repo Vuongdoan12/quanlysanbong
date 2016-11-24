@@ -12,32 +12,40 @@ import com.google.gson.Gson;
 
 import bean.KhuyenMai;
 import bean.NguoiDung;
+import bean.San;
+import bean.TinhTrang;
 import taolao.MyReader;
 
-public class DanhSachKhuyenMaiDao {
+public class DanhSachSanTrongDao {
 
-	public static List<KhuyenMai> getKhuyenMaiList() {
-		String url = "http://fas2016.somee.com/api/khuyenmai";
+	public static List<San> getSanList(String diaChi, String loai, String gioBatDau, String gioKetThuc, String ngay) {
+		// TODO Auto-generated method stub
+		String url = "http://fas2016.somee.com/api/san?diaChi=" + diaChi +"&loai=" + loai+ "&gioBatDau=" + gioBatDau + "&gioKetThuc="+ gioKetThuc + "&ngay="+ ngay;
 		String method = "GET";
-		List<KhuyenMai> khuyenMais = new ArrayList<KhuyenMai>();
+		List<San> sans = new ArrayList<San>();
 		try {
 			String json = MyReader.readFromUrl(url, method);
 			JSONArray a = null;
 			Gson gson = new Gson();
 			JSONObject j = null;
 			JSONObject jj = null;
-			KhuyenMai khuyenMai = new KhuyenMai();
+			JSONObject jjj = null;
+			San san = new San();
 			NguoiDung nguoiDung = new NguoiDung();
-						
+			TinhTrang tinhtrang = new TinhTrang();
+			
             try {
 				a = new JSONArray(json);
 				 for (int i = 0; i < a.length(); i++) {
 		                j = a.getJSONObject(i);
 		                jj = j.getJSONObject("NguoiDung");
-		                khuyenMai = gson.fromJson(j.toString(), KhuyenMai.class);
+		                jjj = j.getJSONObject("TinhTrang");
+		                san = gson.fromJson(j.toString(), San.class);
 		                nguoiDung = gson.fromJson(jj.toString(), NguoiDung.class);
-		                khuyenMai.setChuSan(nguoiDung);
-		                khuyenMais.add(khuyenMai);
+		                tinhtrang = gson.fromJson(jj.toString(), TinhTrang.class);
+		                san.setChuSan(nguoiDung);
+		                san.setTinhTrang(tinhtrang);
+		                sans.add(san);
 				 }
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -50,7 +58,7 @@ public class DanhSachKhuyenMaiDao {
 			return null;
 		}
 		
-		return khuyenMais;
+		return sans;
 	}
 
 }
