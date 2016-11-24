@@ -11,16 +11,16 @@
 <body>	
 
 <div class="container"> 
-<form class="form-horizontal">
+<form class="form-horizontal" action = "DoLoginBO">
  <h1 class="text-center">Chào Mừng đến với Sân Bóng Mini</h1> 
  <div class="row"> 
   <div class="col-md-3 col-md-offset-4"> 
    <h1><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> FAST 2016
    </h1> 
    <div class="login-form"> 
-    <div class="form-group"> <input required="" type="email" class="form-control" value="" placeholder="example@gmail.com" id="login-email"> 
+    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="example" id="userName"> 
     </div> 
-    <div class="form-group"> <input required="" type="password" class="form-control" value="" placeholder="Password" id="login-pass"> 
+    <div class="form-group"> <input required="" type="password" class="form-control" value="" placeholder="Password" id="passwork"> 
     </div> 
     <div class="checkbox"> <label><input type="checkbox"> Giữ tôi luôn đăng nhập </label> 
     </div> 
