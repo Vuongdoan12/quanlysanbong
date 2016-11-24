@@ -51,11 +51,11 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="chu.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
-			<li><a href="chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
-			<li class="active"><a href="quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
-			<li><a href="quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
-			<li><a href="quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
+			<li class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
+			<li><a href="<%=request.getContextPath() %>/chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
+			<li><a href="<%=request.getContextPath() %>/quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
+			<li><a href="<%=request.getContextPath() %>/quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
+			<li><a href="<%=request.getContextPath() %>/quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -75,7 +75,7 @@
 					<div class="panel-heading">DANH SÁCH SÂN</div>
 					<div class="panel-body">
 						<div><a href="themsanbong.jsp"><button type="submit" class="btn btn-info">Thêm</button></a></div>
-						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="" data-checkbox="true" ></th>
