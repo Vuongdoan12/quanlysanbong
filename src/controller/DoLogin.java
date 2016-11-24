@@ -44,7 +44,7 @@ public class DoLogin extends HttpServlet {
 	    		  response.sendRedirect(request.getContextPath() + "/DanhSachThue");
 	    	  }else
 	    	  {
-	    		  response.sendRedirect(request.getContextPath() + "/DanhSachKhuyenMai");
+	    		  response.sendRedirect(request.getContextPath() + "/KhachDanhSachKhuyenMai");
 	    	  }
 		}
 	}

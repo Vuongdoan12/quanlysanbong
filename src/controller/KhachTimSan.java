@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class TimKiemSan
+ * Servlet implementation class TimSan
  */
-@WebServlet("/TimKiemSan")
-public class TimKiemSan extends HttpServlet {
+@WebServlet("/KhachTimSan")
+public class KhachTimSan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TimKiemSan() {
+    public KhachTimSan() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,25 +29,8 @@ public class TimKiemSan extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
-		String gioBatDau = request.getParameter("gioBatDau");
-		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");*/
-		String bt = request.getParameter("bttimsan");
-		
-		if (bt == "1")
-		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("DanhSachSanTrong");  
-		    dispatcher.forward(request, response);
-		}
-		else
-		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("DanhSachTran");  
-		    dispatcher.forward(request, response);
-		}
-		
-		
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/formtimsan.jsp");  
+	    dispatcher.forward(request, response);
 	}
 
 	/**

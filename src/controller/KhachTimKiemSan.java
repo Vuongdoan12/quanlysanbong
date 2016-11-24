@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,22 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
-
-import bean.KhuyenMai;
-import bo.DanhSachKhuyenMaiBO;
-
 /**
- * Servlet implementation class DanhSachKhuyenMai
+ * Servlet implementation class TimKiemSan
  */
-@WebServlet("/DanhSachKhuyenMai")
-public class DanhSachKhuyenMai extends HttpServlet {
+@WebServlet("/KhachTimKiemSan")
+public class KhachTimKiemSan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DanhSachKhuyenMai() {
+    public KhachTimKiemSan() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,11 +29,25 @@ public class DanhSachKhuyenMai extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<KhuyenMai> list = null;
-		list = DanhSachKhuyenMaiBO.getKhuyenMaiList();
-		request.setAttribute("danhSachKhuyenMai", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/khach.jsp");  
-	    dispatcher.forward(request, response);
+		/*String diaChi = request.getParameter("diaChi");
+		String loai = request.getParameter("loai");
+		String gioBatDau = request.getParameter("gioBatDau");
+		String gioKetThuc = request.getParameter("gioKetThuc");
+		String ngay = request.getParameter("ngay");*/
+		String bt = request.getParameter("bttimsan");
+		
+		if (bt == "1")
+		{
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachDanhSachSanTrong");  
+		    dispatcher.forward(request, response);
+		}
+		else
+		{
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachDanhSachTran");  
+		    dispatcher.forward(request, response);
+		}
+		
+		
 	}
 
 	/**

@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+
 import bean.KhuyenMai;
-import bean.San;
 import bo.DanhSachKhuyenMaiBO;
-import bo.DanhSachSanTrongBO;
 
 /**
- * Servlet implementation class DanhSachSanTrong
+ * Servlet implementation class DanhSachKhuyenMai
  */
-@WebServlet("/DanhSachSanTrong")
-public class DanhSachSanTrong extends HttpServlet {
+@WebServlet("/KhachDanhSachKhuyenMai")
+public class KhachDanhSachKhuyenMai extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DanhSachSanTrong() {
+    public KhachDanhSachKhuyenMai() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,16 +35,10 @@ public class DanhSachSanTrong extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
-		String gioBatDau = request.getParameter("gioBatDau");
-		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");
-		
-		List<San> list = null;
-		list = DanhSachSanTrongBO.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
-		request.setAttribute("danhSachSanTrong", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/dánhachsantrong.jsp");  
+		List<KhuyenMai> list = null;
+		list = DanhSachKhuyenMaiBO.getKhuyenMaiList();
+		request.setAttribute("danhSachKhuyenMai", list);
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/khach.jsp");  
 	    dispatcher.forward(request, response);
 	}
 
