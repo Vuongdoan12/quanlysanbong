@@ -43,6 +43,10 @@ public class KhachDanhSachSanTrong extends HttpServlet {
 		
 		List<San> list = null;
 		list = DanhSachSanTrongBO.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
+		if(list == null){
+			RequestDispatcher rd = request.getRequestDispatcher("/khach/formtimsan.jsp");
+			rd.forward(request, response);
+		}
 		request.setAttribute("danhSachSanTrong", list);
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/danhsachsantrong.jsp");  
 	    dispatcher.forward(request, response);

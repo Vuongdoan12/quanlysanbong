@@ -49,14 +49,13 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="khach.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
-			<li><a href="KhachTimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
-			<li><a href="quanlisandat.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
-			<li><a href="quanlitran.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
-			<li><a href="quanlitaikhoan.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
+			<li   class="active"><a href="<%=request.getContextPath()%>/KhachDanhSachKhuyenMai"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachTimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachDatSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachQuanLyTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachQuanLyTaiKhoan"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
-
 	</div><!--/.sidebar-->
 		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">

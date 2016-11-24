@@ -59,7 +59,7 @@
 			</ol>
 		</div><!--/.row-->
 <div class="container"> 
-<form class="form-horizontal" action = "KhachTimKiemSan">
+<form class="form-horizontal" action = "<%=request.getContextPath() %>/KhachTimKiemSan">
  <h1 class="text-center">TÌM SÂN</h1> 
  <div class="row"> 
   <div class="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3"> 

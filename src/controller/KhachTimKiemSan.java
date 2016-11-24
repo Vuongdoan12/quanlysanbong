@@ -36,7 +36,7 @@ public class KhachTimKiemSan extends HttpServlet {
 		String ngay = request.getParameter("ngay");*/
 		String bt = request.getParameter("bttimsan");
 		
-		if (bt == "1")
+		if ("1".equals(bt))
 		{
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachDanhSachSanTrong");  
 		    dispatcher.forward(request, response);

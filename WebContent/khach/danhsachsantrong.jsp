@@ -1,3 +1,5 @@
+<%@page import="bean.San"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,11 +50,11 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="khach.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
-			<li class="active"><a href="formtimsan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
-			<li><a href="quanlisandat.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
-			<li><a href="quanlitran.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
-			<li><a href="quanlitaikhoan.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachDanhSachKhuyenMai"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
+			<li class="active"><a href="<%=request.getContextPath()%>/KhachTimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachDatSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachQuanLyTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
+			<li><a href="<%=request.getContextPath()%>/KhachQuanLyTaiKhoan"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -79,14 +81,25 @@
 						        <th data-field="diachi" data-sortable="true">Địa chỉ</th>
 						        <th data-field="gia" data-sortable="true">Giá</th>
 						        <th data-field="loai" data-sortable="true">Loại</th>
-						        <th data-field="giobatdau" data-sortable="true">Giờ bắt đầu</th>
-						        <th data-field="gioketthuc" data-sortable="true">Giờ kết thúc</th>
-						        <th data-field="ngay" data-sortable="true">Ngày</th>
-						        <th data-field="soluongconlai" data-sortable="true">Số lượng còn lại</th>
 						        <th data-field="sodienthoai" data-sortable="true">Số điện thoại sân</th>
-						        <th data-field="thamgia" data-sortable="true">Tham gia</th>
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<San> listST = (List<San>)request.getAttribute("danhSachSanTrong");
+						    		for(San item: listST){
+						    	%>
+						    	<tr>
+						    		<td><%=item.getTen() %></td>
+						    		<td><%=item.getGia() %></td>
+						    		<td><%=item.getChuSan().getDiaChi() %></td>
+						    		<td><%=item.getLoai() %></td>
+						    		<td><%=item.getChuSan().getSdt() %></td>
+						    	</tr>
+						    	<%
+						    		}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>
