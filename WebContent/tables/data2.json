@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Sân Nguyễn Chánh",
+        "address": "Nguyễn Chánh City",
+        "price": "$15000",
+        "type": 7,
+        "status": "Hoạt động"
+    },
+    {
+        "name": "Mờ U",
+        "address": "MU street",
+        "price": "$2000",
+        "type": 2,
+        "status": "Hoạt động"
+    },
+    {
+        "name": "Nam Cao",
+        "address": "Nam Cao City",
+        "price": "$3000",
+        "type": 3,
+        "status": "Hoạt động"
+    },
+    {
+        "name": "Uy Việt",
+        "address": "Uy Việt Xóm",
+        "price": "$5000",
+        "type": 4,
+        "status": "Hoạt động"
+    },
+    {
+        "name": "Xuân Thịnh",
+        "address": "Xuân Thịnh Nhà Lá",
+        "price": "$1110",
+        "type": 2,
+        "status": "Hoạt động"
+    }
+]
