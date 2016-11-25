@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.KhuyenMai;
 import bean.San;
-import bo.DanhSachKhuyenMaiBO;
-import bo.DanhSachSanTrongBO;
+import bo.KhachDanhSachKhuyenMaiBO;
+import bo.KhachDanhSachSanTrongBO;
 
 /**
  * Servlet implementation class DanhSachSanTrong
@@ -42,7 +42,7 @@ public class KhachDanhSachSanTrong extends HttpServlet {
 		String ngay = request.getParameter("ngay");
 		
 		List<San> list = null;
-		list = DanhSachSanTrongBO.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
+		list = KhachDanhSachSanTrongBO.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
 		request.setAttribute("danhSachSanTrong", list);
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/danhsachsantrong.jsp");  
 	    dispatcher.forward(request, response);
