@@ -13,16 +13,16 @@ import com.google.gson.Gson;
 import bean.KhuyenMai;
 import bean.NguoiDung;
 import bean.San;
-import bean.Thue;
+import bean.TinhTrang;
 import taolao.MyReader;
 
-public class DanhSachThueDao {
+public class KhachDanhSachSanTrongDao {
 
-	public static List<Thue> getThuelist(String string) {
+	public static List<San> getSanList(String diaChi, String loai, String gioBatDau, String gioKetThuc, String ngay) {
 		// TODO Auto-generated method stub
-		String url = "http://fas2016.somee.com/api/Thue?idNguoiDung="+string+"&isChuSan=1";
+		String url = "http://fas2016.somee.com/api/san?diaChi=" + diaChi +"&loai=" + loai+ "&gioBatDau=" + gioBatDau + "&gioKetThuc="+ gioKetThuc + "&ngay="+ ngay;
 		String method = "GET";
-		List<Thue> thues = new ArrayList<Thue>();
+		List<San> sans = new ArrayList<San>();
 		try {
 			String json = MyReader.readFromUrl(url, method);
 			JSONArray a = null;
@@ -30,26 +30,22 @@ public class DanhSachThueDao {
 			JSONObject j = null;
 			JSONObject jj = null;
 			JSONObject jjj = null;
-			JSONObject jjjj = null;
 			San san = new San();
-			NguoiDung nguoithue = new NguoiDung();
-			NguoiDung chu = new NguoiDung();
-			Thue thue = new Thue();		
+			NguoiDung nguoiDung = new NguoiDung();
+			TinhTrang tinhtrang = new TinhTrang();
+			
             try {
 				a = new JSONArray(json);
 				 for (int i = 0; i < a.length(); i++) {
 		                j = a.getJSONObject(i);
 		                jj = j.getJSONObject("NguoiDung");
-		                jjj = j.getJSONObject("San");
-		                jjjj = j.getJSONObject("NguoiDung");
-		                thue = gson.fromJson(j.toString(), Thue.class);
-		                san = gson.fromJson(jjj.toString(), San.class);
-		                nguoithue = gson.fromJson(jj.toString(), NguoiDung.class);
-		                chu = gson.fromJson(jjjj.toString(), NguoiDung.class);
-		                san.setChuSan(chu);
-		                thue.setSan(san);
-		                thue.setNguoiThue(nguoithue);
-		                thues.add(thue);
+		                jjj = j.getJSONObject("TinhTrang");
+		                san = gson.fromJson(j.toString(), San.class);
+		                nguoiDung = gson.fromJson(jj.toString(), NguoiDung.class);
+		                tinhtrang = gson.fromJson(jj.toString(), TinhTrang.class);
+		                san.setChuSan(nguoiDung);
+		                san.setTinhTrang(tinhtrang);
+		                sans.add(san);
 				 }
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -61,8 +57,8 @@ public class DanhSachThueDao {
 			e.printStackTrace();
 			return null;
 		}
-		//aa
-		return thues;
+		
+		return sans;
 	}
 
 }

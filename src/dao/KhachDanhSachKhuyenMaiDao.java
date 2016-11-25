@@ -14,7 +14,7 @@ import bean.KhuyenMai;
 import bean.NguoiDung;
 import taolao.MyReader;
 
-public class DanhSachKhuyenMaiDao {
+public class KhachDanhSachKhuyenMaiDao {
 
 	public static List<KhuyenMai> getKhuyenMaiList() {
 		String url = "http://fas2016.somee.com/api/khuyenmai";

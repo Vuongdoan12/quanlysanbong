@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.NguoiDung;
 import bo.DoLoginBO;
@@ -40,6 +41,8 @@ public class DoLogin extends HttpServlet {
 		}
 		else
 		{
+			HttpSession session = request.getSession();
+			session.setAttribute("nguoiDung", nguoiDung);
 			if (nguoiDung.getQuyen()==1){
 	    		  response.sendRedirect(request.getContextPath() + "/ChuDanhSachThue");
 	    	  }else

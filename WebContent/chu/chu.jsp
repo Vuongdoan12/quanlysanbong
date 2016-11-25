@@ -51,10 +51,10 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
-			<li><a href="<%=request.getContextPath() %>/chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
-			<li><a href="<%=request.getContextPath() %>/quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
-			<li><a href="<%=request.getContextPath() %>/quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
-			<li><a href="<%=request.getContextPath() %>/quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
+			<li><a href="<%=request.getContextPath() %>/chu/chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
+			<li><a href="<%=request.getContextPath() %>/chu/quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
+			<li><a href="<%=request.getContextPath() %>/chu/quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
+			<li><a href="<%=request.getContextPath() %>/chu/quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -83,25 +83,27 @@
 						        <th data-field="giobatdau" data-sortable="true">Giờ bắt đầu</th>
 						        <th data-field="gioketthuc" data-sortable="true">Giờ kết thúc</th>
 						        <th data-field="ngay" data-sortable="true">Ngày</th>
-						        <th data-field="xacnhan" data-sortable="true">Xác nhận</th>
+						       
 						    </tr>
 						    </thead>
 						    <tbody>
 						    	<%
 						    		List<Thue> listT = (List<Thue>)request.getAttribute("danhSachThue");
+						    		if (listT!=null){
 						    		for(Thue item: listT){
 						    		%>
 						    	<tr>
 						    		<td></td>
-						    		<td><%=item.getSan()%></td>
-						    		<td><%=item.getNguoiThue()%></td>
+						    		<td><%=item.getSan().getTen()%></td>
+						    		<td><%=item.getNguoiThue().getTen()%></td>
 						    		<td><%=item.getNguoiThue().getSdt()%></td>
 						    		<td><%=item.getGioBatDau()%></td>
 						    		<td><%=item.getGioKetThuc()%></td>
 						    		<td><%=item.getNgay()%></td>
 						    	</tr>
 						    	<%
-						    	}
+						    			}
+						    		}	
 						    	%>
 						    </tbody>
 						</table>

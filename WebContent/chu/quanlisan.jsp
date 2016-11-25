@@ -1,3 +1,5 @@
+<%@page import="bean.San"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -86,6 +88,25 @@
 						        <th data-field="" data-sortable="true">Quản lý</th>    
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<San> listS = (List<San>)request.getAttribute("danhSachThue");
+						    		if (listS!=null){
+						    		for(San item: listS){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getTen()%></td>
+						    		<td><%=item.getLoai()%></td>
+						    		<td><%=item.getGia()%></td>
+						    		<td><%=item.getTinhTrang()%></td>
+						    		<td><%=item.getChuSan().getTen()%></td>
+						    	</tr>
+						    	<%
+						    			}
+						    		}	
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>

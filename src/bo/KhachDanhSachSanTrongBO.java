@@ -3,14 +3,14 @@ package bo;
 import java.util.List;
 
 import bean.San;
-import dao.DanhSachKhuyenMaiDao;
-import dao.DanhSachSanTrongDao;
+import dao.KhachDanhSachKhuyenMaiDao;
+import dao.KhachDanhSachSanTrongDao;
 
-public class DanhSachSanTrongBO {
+public class KhachDanhSachSanTrongBO {
 
 	public static List<San> getSanList(String diaChi, String loai, String gioBatDau,String gioKetThuc, String ngay) {
 		// TODO Auto-generated method stub
-		return DanhSachSanTrongDao.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
+		return KhachDanhSachSanTrongDao.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
 	}
 
 }

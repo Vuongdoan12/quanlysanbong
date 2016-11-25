@@ -12,17 +12,16 @@ import com.google.gson.Gson;
 
 import bean.KhuyenMai;
 import bean.NguoiDung;
-import bean.San;
-import bean.TinhTrang;
+import bean.Vip;
 import taolao.MyReader;
 
-public class DanhSachSanTrongDao {
+public class ChuDanhSachVipDao {
 
-	public static List<San> getSanList(String diaChi, String loai, String gioBatDau, String gioKetThuc, String ngay) {
+	public static List<Vip> getVipList(int i2) {
 		// TODO Auto-generated method stub
-		String url = "http://fas2016.somee.com/api/san?diaChi=" + diaChi +"&loai=" + loai+ "&gioBatDau=" + gioBatDau + "&gioKetThuc="+ gioKetThuc + "&ngay="+ ngay;
+		String url = "http://fas2016.somee.com/api/vip?idChuSan="+i2;
 		String method = "GET";
-		List<San> sans = new ArrayList<San>();
+		List<Vip> vips = new ArrayList<Vip>();
 		try {
 			String json = MyReader.readFromUrl(url, method);
 			JSONArray a = null;
@@ -30,22 +29,22 @@ public class DanhSachSanTrongDao {
 			JSONObject j = null;
 			JSONObject jj = null;
 			JSONObject jjj = null;
-			San san = new San();
-			NguoiDung nguoiDung = new NguoiDung();
-			TinhTrang tinhtrang = new TinhTrang();
-			
+			NguoiDung chu = new NguoiDung();
+			NguoiDung thue = new NguoiDung();
+			Vip vip = new Vip();		
             try {
 				a = new JSONArray(json);
 				 for (int i = 0; i < a.length(); i++) {
 		                j = a.getJSONObject(i);
 		                jj = j.getJSONObject("NguoiDung");
-		                jjj = j.getJSONObject("TinhTrang");
-		                san = gson.fromJson(j.toString(), San.class);
-		                nguoiDung = gson.fromJson(jj.toString(), NguoiDung.class);
-		                tinhtrang = gson.fromJson(jj.toString(), TinhTrang.class);
-		                san.setChuSan(nguoiDung);
-		                san.setTinhTrang(tinhtrang);
-		                sans.add(san);
+		                jjj = j.getJSONObject("NguoiDung1");
+		                
+		                vip = gson.fromJson(j.toString(), Vip.class);
+		                thue = gson.fromJson(jj.toString(), NguoiDung.class);
+		                chu = gson.fromJson(jjj.toString(), NguoiDung.class);
+		                vip.setChuSan(chu);
+		                vip.setNguoiThue(thue);
+		                vips.add(vip);
 				 }
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
@@ -58,7 +57,7 @@ public class DanhSachSanTrongDao {
 			return null;
 		}
 		
-		return sans;
+		return vips;
 	}
 
 }

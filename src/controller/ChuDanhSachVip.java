@@ -9,11 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.NguoiDung;
 import bean.Thue;
 import bean.Vip;
-import bo.DanhSachThueBO;
-import bo.DanhSachVipBO;
+import bo.ChuDanhSachThueBO;
+import bo.ChuDanhSachVipBO;
 
 /**
  * Servlet implementation class ChuDanhSachVip
@@ -36,7 +38,11 @@ public class ChuDanhSachVip extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<Vip> list = null;
-		list = DanhSachVipBO.getVipList("aa");
+		NguoiDung nguoiDung = new NguoiDung();
+		HttpSession session = request.getSession();
+		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
+		
+		list = ChuDanhSachVipBO.getVipList(nguoiDung.getIdNguoiDung());
 		request.setAttribute("danhSachVip", list);
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/chuvip.jsp");  
 	    dispatcher.forward(request, response);
