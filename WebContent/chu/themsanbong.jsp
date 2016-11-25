@@ -62,25 +62,21 @@
 			</ol>
 		</div><!--/.row-->
 <div class="container"> 
-<form class="form-horizontal">
+<form class="form-horizontal" action = "ChuThemSan">
  <h1 class="text-center">THÔNG TIN SÂN BÓNG</h1> 
  <div class="row"> 
   <div class="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3">
   	<h1><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Profile
     </h1> 
   	<div class="sign-form">
-    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Tên sân" id="signin-tensan"> </div> 
-    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Loại" id="signin-loai"> </div>
-  	<div class="form-group"> <input required="" type="email" class="form-control" value="" placeholder="Giá" id="signin-gia"> </div>
-  	<div class="form-group"> 
-  	<label> Hình Ảnh</label>
-  	<input required="" type="file" value="" id="signin-hinhanh"> 
-  	</div>
+    <div class="form-group"> <input required="" type="text" class="form-control" value="" placeholder="Tên sân" id="them-tensan" name = "them-tensan"> </div> 
+    <div class="form-group"> <input required="" type="number" class="form-control" value="" placeholder="Loại" id="them-loai" name = "them-loai"> </div>
+  	<div class="form-group"> <input required="" type="number" class="form-control" value="" placeholder="Giá" id="them-gia" name = "them-gia"> </div>
+  	
   	<div class="form-group">
   	<label> Tình Trạng</label>
-  	<select name ="tinhtrang">
-  	<option value="0" selected = "seleted">----Chọn----</option>
-  	<option value="1">Hoạt động</option>
+  	<select name ="them-tinhtrang">
+  	<option value="1" selected = "seleted">Hoạt động</option>
   	<option value="2">Đang sửa chữa</option>
   	<option value="3">Không sử dụng</option>
   	</select>

@@ -19,9 +19,11 @@ public class MyReader {
 	        httpConn.setAllowUserInteraction(false);
 	        httpConn.setInstanceFollowRedirects(true);
 	        httpConn.setRequestMethod(method);
+	        httpConn.setRequestProperty("Content-Length", "0");
 	        httpConn.connect();
 	        InputStream is = httpConn.getInputStream();
-
+	        int fileLength = httpConn.getContentLength();    
+	        System.out.println(fileLength);
 	        BufferedReader rd = new BufferedReader (new InputStreamReader(is, Charset.forName("UTF-8")));
 	        StringBuilder sb = new StringBuilder();
 	        int  cp;
