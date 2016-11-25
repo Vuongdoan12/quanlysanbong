@@ -1,5 +1,3 @@
-<%@page import="bean.Vip"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -51,7 +49,7 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
-			<li><a href="<%=request.getContextPath() %>/ChuDanhSachVip"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
+			<li><a href="<%=request.getContextPath() %>/chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
 			<li><a href="<%=request.getContextPath() %>/quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
 			<li><a href="<%=request.getContextPath() %>/quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
 			<li><a href="<%=request.getContextPath() %>/quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
@@ -81,27 +79,9 @@
 						        <th data-field="sodienthoai" data-sortable="true">Số điện thoại</th>
 						        <th data-field="solanthue" data-sortable="true">Số lần thuê</th>
 						        <th data-field="" data-sortable="true">Quản lý</th>
+						        
 						    </tr>
 						    </thead>
-						     <tbody>
-						    	<%
-						    		List<Vip> listV = (List<Vip>)request.getAttribute("danhSachVip");
-						    		if (listV!=null){
-						    		for(Vip item: listV){
-						    		%>
-						    	<tr>
-						    		<td></td>
-						    		<td><%=item.getNguoiThue().getTen()%></td>
-						    		<td><%=item.getNguoiThue().getSdt()%></td>
-						    		<td><%=item.getSoLanThue()%></td>
-						    		<td><%=item.getChuSan()%></td>
-						    	
-						    	</tr>
-						    	<%
-						    			}
-						    		}
-						    	%>
-						    </tbody>
 						</table>
 					</div>
 				</div>

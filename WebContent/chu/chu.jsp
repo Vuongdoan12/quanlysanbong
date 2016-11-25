@@ -102,8 +102,7 @@
 						    		<td><%=item.getNgay()%></td>
 						    	</tr>
 						    	<%
-						    			}
-						    		}	
+						    	}}
 						    	%>
 						    </tbody>
 						</table>
