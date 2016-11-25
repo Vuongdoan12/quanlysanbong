@@ -55,7 +55,7 @@ public class ChuThemSan extends HttpServlet {
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ChuThemSan");  
 		    dispatcher.forward(request, response);
 		}
-
+//
 
 		/*Map<String, Object> params = new LinkedHashMap<>();
 		params.put("idNguoiDung", nguoiDung.getIdNguoiDung());
