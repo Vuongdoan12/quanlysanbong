@@ -1,3 +1,5 @@
+<%@page import="bean.San"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,9 +48,9 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="quanliUser.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
-			<li class="active"><a href=""><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
-			<li><a href="changePass.jsp"><svg class="glyph stroked key "><use xlink:href="#stroked-key"/></use></svg>Quản lí tài khoản</a></li>
+			<li><a href="<%=request.getContextPath()%>/AdminQuanLyUser"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
+			<li class="active"><a href="<%=request.getContextPath()%>/AdminQuanLySan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
+			<li><a href="<%=request.getContextPath()%>/AdminChangePass"><svg class="glyph stroked key "><use xlink:href="#stroked-key"/></use></svg>Quản lí tài khoản</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -63,7 +65,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Quản lí sân</div>
+					<div class="panel-heading">QUẢN LÝ SÂN</div>
 					<div class="panel-body">
 						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
@@ -73,9 +75,31 @@
 						        <th data-field="address" data-sortable="true">Địa chỉ</th>
 						        <th data-field="price" data-sortable="true">Giá cả</th>
 						        <th data-field="type" data-sortable="true">Loại sân</th>
+						        <th data-field="chu" data-sortable="true">Chủ sân</th>
 						        <th data-field="status" data-sortable="true">Tình Trạng</th>
+						        <th data-field="chucnang" data-sortable="true">Chức năng</th>
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<San> listS = (List<San>)request.getAttribute("danhSachSan");
+						    		if (listS!=null){
+						    		for(San item: listS){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getTen()%></td>
+						    		<td><%=item.getChuSan().getDiaChi()%></td>
+						    		<td><%=item.getGia()%></td>
+						    		<td><%=item.getLoai()%></td>
+						    		<td><%=item.getChuSan().getTen()%></td>
+						    		<td><%=item.getTinhTrang()%></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/AdminXoaSan?idVip=<%=item.getIdSan()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    	</tr>
+						    	<%
+						    	}}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>
