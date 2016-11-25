@@ -14,7 +14,7 @@ import bean.KhuyenMai;
 import bean.NguoiDung;
 import taolao.MyReader;
 
-public class ChuDanhSachKhuyenMaiDao {
+public class ChuQuanLyKhuyenMaiDao {
 
 	public static List<KhuyenMai> getKhuyenMaiList(int idNguoiDung) {
 		// TODO Auto-generated method stub

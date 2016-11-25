@@ -13,19 +13,20 @@ import javax.servlet.http.HttpSession;
 
 import bean.KhuyenMai;
 import bean.NguoiDung;
+import bo.ChuQuanLyKhuyenMaiBO;
 import bo.KhachDanhSachKhuyenMaiBO;
 
 /**
  * Servlet implementation class ChuDanhSachKhuyenMai
  */
-@WebServlet("/ChuDanhSachKhuyenMai")
-public class ChuDanhSachKhuyenMai extends HttpServlet {
+@WebServlet("/ChuQuanLyKhuyenMai")
+public class ChuQuanLyKhuyenMai extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ChuDanhSachKhuyenMai() {
+    public ChuQuanLyKhuyenMai() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,12 +37,13 @@ public class ChuDanhSachKhuyenMai extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<KhuyenMai> list = null;
-		list = KhachDanhSachKhuyenMaiBO.getKhuyenMaiList();
+		
 		NguoiDung nguoiDung = new NguoiDung();
 		HttpSession session = request.getSession();
 		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
 		request.setAttribute("danhSachKhuyenMai", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/khach.jsp");  
+		list = ChuQuanLyKhuyenMaiBO.getKhuyenMaiList(nguoiDung.getIdNguoiDung());
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/quanlikhuyenmai.jsp");  
 	    dispatcher.forward(request, response);
 	}
 
