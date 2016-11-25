@@ -1,3 +1,5 @@
+<%@page import="bean.KhuyenMai"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -75,16 +77,35 @@
 					<div class="panel-heading">DANH SÁCH KHUYẾN MÃI</div>
 					<div class="panel-body">
 						<div><a href="themkhuyenmai.jsp"><button type="submit" class="btn btn-info">Thêm</button></a></div>
-						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="" data-checkbox="true" ></th>
 						        <th data-field="ngaybatdau" data-sortable="true">Ngày bắt đầu</th>
 						        <th data-field="ngaykethuc" data-sortable="true">Ngày kết thúc</th>
 						        <th data-field="noidung" data-sortable="true">Nội dung</th>
-						        <th data-field="quanly" data-sortable="true">Quản lý</th>    
+						        <th data-field="quanly" data-sortable="true">Quản lý</th>
+						        <th data-field="chucnang" data-sortable="true">Chức năng</th>   
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<KhuyenMai> listKM = (List<KhuyenMai>)request.getAttribute("danhSachKhuyenMai");
+						    		if (listKM!=null){
+						    		for(KhuyenMai item: listKM){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getNgayBatDau()%></td>
+						    		<td><%=item.getNgayKetThuc()%></td>
+						    		<td><%=item.getNoiDung()%></td>
+						    		<td><%=item.getChuSan()%></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/admin/cat-del?cid=<%=item.getIdKhuyenMai()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    	</tr>
+						    	<%
+						    	}}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>
