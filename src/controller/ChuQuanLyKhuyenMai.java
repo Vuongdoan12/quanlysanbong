@@ -41,8 +41,8 @@ public class ChuQuanLyKhuyenMai extends HttpServlet {
 		NguoiDung nguoiDung = new NguoiDung();
 		HttpSession session = request.getSession();
 		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
-		request.setAttribute("danhSachKhuyenMai", list);
 		list = ChuQuanLyKhuyenMaiBO.getKhuyenMaiList(nguoiDung.getIdNguoiDung());
+		request.setAttribute("danhSachKhuyenMai", list);
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/quanlikhuyenmai.jsp");  
 	    dispatcher.forward(request, response);
 	}

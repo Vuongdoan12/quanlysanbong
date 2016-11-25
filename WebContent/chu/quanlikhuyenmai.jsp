@@ -90,8 +90,8 @@
 						    </thead>
 						    <tbody>
 						    	<%
-						    		List<KhuyenMai> listKM = (List<KhuyenMai>)request.getAttribute("danhSachKhuyenMai");
-						    		if (listKM!=null){
+						    		List<KhuyenMai> listKM = (List<KhuyenMai>) request.getAttribute("danhSachKhuyenMai");
+						    		if(listKM!=null){
 						    		for(KhuyenMai item: listKM){
 						    		%>
 						    	<tr>
@@ -99,7 +99,7 @@
 						    		<td><%=item.getNgayBatDau()%></td>
 						    		<td><%=item.getNgayKetThuc()%></td>
 						    		<td><%=item.getNoiDung()%></td>
-						    		<td><%=item.getChuSan()%></td>
+						    		<td><%=item.getChuSan().getTen()%></td>
 						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/admin/cat-del?cid=<%=item.getIdKhuyenMai()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
 						    	</tr>
 						    	<%
