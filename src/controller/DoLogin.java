@@ -45,10 +45,13 @@ public class DoLogin extends HttpServlet {
 			session.setAttribute("nguoiDung", nguoiDung);
 			if (nguoiDung.getQuyen()==1){
 	    		  response.sendRedirect(request.getContextPath() + "/ChuDanhSachThue");
-	    	  }else
+			}else if(nguoiDung.getQuyen()==2)
 	    	  {
 	    		  response.sendRedirect(request.getContextPath() + "/KhachDanhSachKhuyenMai");
 	    	  }
+			else{
+				response.sendRedirect(request.getContextPath() + "/AdminQuanLySan");
+			}
 		}
 	}
 
