@@ -41,7 +41,6 @@ public class ChuDanhSachVip extends HttpServlet {
 		NguoiDung nguoiDung = new NguoiDung();
 		HttpSession session = request.getSession();
 		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
-		
 		list = ChuDanhSachVipBO.getVipList(nguoiDung.getIdNguoiDung());
 		request.setAttribute("danhSachVip", list);
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/chuvip.jsp");  

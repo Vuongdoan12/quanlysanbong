@@ -52,7 +52,7 @@ public class ChuThemSan extends HttpServlet {
 		    dispatcher.forward(request, response);
 		}else
 		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ChuThemSan");  
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/themsanbong.jsp");  
 		    dispatcher.forward(request, response);
 		}
 //

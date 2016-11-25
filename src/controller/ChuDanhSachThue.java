@@ -41,7 +41,6 @@ public class ChuDanhSachThue extends HttpServlet {
 		NguoiDung nguoiDung = new NguoiDung();
 		HttpSession session = request.getSession();
 		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
-		
 		list = ChuDanhSachThueBO.getThueList(nguoiDung.getIdNguoiDung());
 		request.setAttribute("danhSachThue", list);
 		

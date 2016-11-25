@@ -1,3 +1,5 @@
+<%@page import="bean.San"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -51,11 +53,11 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
-			<li><a href="<%=request.getContextPath() %>/chuvip.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
-			<li><a href="<%=request.getContextPath() %>/quanlisan.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
-			<li><a href="<%=request.getContextPath() %>/quanlikhuyenmai.jsp"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
-			<li><a href="<%=request.getContextPath() %>/quanlinguoidung.jsp"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
+			<li><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
+			<li><a href="<%=request.getContextPath() %>/ChuDanhSachVip"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
+			<li  class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
+			<li><a href="<%=request.getContextPath() %>/ChuQuanLyKhuyenMai"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
+			<li ><a href="<%=request.getContextPath() %>/ChuQuanLyNguoiDung"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -74,7 +76,8 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">DANH SÁCH SÂN</div>
 					<div class="panel-body">
-						<div><a href="themsanbong.jsp"><button type="submit" class="btn btn-info">Thêm</button></a></div>
+						<div><a href="<%=request.getContextPath()%>/chu/themsanbong.jsp"><button type="submit" class="btn btn-info">Thêm</button></a></div>
+						</div>
 						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -83,9 +86,29 @@
 						        <th data-field="loaisan" data-sortable="true">Loại sân</th>
 						        <th data-field="gia" data-sortable="true">Giá</th>
 						        <th data-field="tinhtrang" data-sortable="true">Tình trạng</th>
-						        <th data-field="" data-sortable="true">Quản lý</th>    
+						        <th data-field="quanly" data-sortable="true">Quản lý</th>
+						         <th data-field="chucnang" data-sortable="true">Chức năng</th>  
 						    </tr>
 						    </thead>
+						     <tbody>
+						    	<%
+						    		List<San> listS = (List<San>)request.getAttribute("danhSachThue");
+						    		if (listS!=null){
+						    		for(San item: listS){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getTen()%></td>
+						    		<td><%=item.getLoai()%></td>
+						    		<td><%=item.getGia()%></td>
+						    		<td><%=item.getTinhTrang()%></td>
+						    		<td><%=item.getChuSan()%></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/admin/cat-del?cid=<%=item.getIdVip()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    	</tr>
+						    	<%
+						    	}}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>

@@ -41,7 +41,6 @@ public class ChuDanhSachSan extends HttpServlet {
 		NguoiDung nguoiDung = new NguoiDung();
 		HttpSession session = request.getSession();
 		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
-		
 		list = ChuDanhSachSanBO.getSanList(nguoiDung.getIdNguoiDung());
 		request.setAttribute("danhSachThue", list);
 		
