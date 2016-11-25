@@ -100,7 +100,7 @@
 						    		<td><%=item.getNgayKetThuc()%></td>
 						    		<td><%=item.getNoiDung()%></td>
 						    		<td><%=item.getChuSan()%></td>
-						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/admin/cat-del?cid=<%=item.getIdKhuyenMai()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/ChuXoaKhuyenMai?id=<%=item.getIdKhuyenMai()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
 						    	</tr>
 						    	<%
 						    	}}
