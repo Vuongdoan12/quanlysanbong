@@ -19,6 +19,7 @@ public class ChuQuanLyKhuyenMaiDao {
 	public static List<KhuyenMai> getKhuyenMaiList(int idNguoiDung) {
 		// TODO Auto-generated method stub
 		String url = "http://fas2016.somee.com/api/khuyenmai?idNguoiDung="+idNguoiDung;
+		
 		String method = "GET";
 		List<KhuyenMai> khuyenMais = new ArrayList<KhuyenMai>();
 		try {
@@ -39,6 +40,7 @@ public class ChuQuanLyKhuyenMaiDao {
 		                nguoiDung = gson.fromJson(jj.toString(), NguoiDung.class);
 		                khuyenMai.setChuSan(nguoiDung);
 		                khuyenMais.add(khuyenMai);
+		                System.out.println(khuyenMai.getNoiDung());
 				 }
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
