@@ -62,7 +62,7 @@
 			</ol>
 		</div><!--/.row-->
 <div class="container"> 
-<form class="form-horizontal">
+<form class="form-horizontal" action = "ChuThemKhuyenMai">
  <h1 class="text-center">THÊM THÔNG TIN KHUYẾN MÃI</h1> 
  <div class="row"> 
   <div class="col-md-3 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -71,13 +71,13 @@
   	<div class="sign-form">
     <div class="form-group"> 
     	<label> Ngày Bắt Đầu:</label>
-  		<input required="" type="date" value="" id="signin-ngaybatdau"> 
+  		<input required="" type="date" value="" id="km-ngaybatdau" name ="km-ngaybatdau"> 
     </div>
     <div class="form-group"> 
     	<label> Ngày Kết Thúc:</label>
-  		<input required="" type="date" value="" id="signin-ngayketthuc"> 
+  		<input required="" type="date" value="" id="km-ngayketthuc" name = "km-ngayketthuc"> 
     </div> 
-  	<div class="form-group"><textarea required="" class="form-control" placeholder="Nội dung khuyến mãi" id="signin-address"></textarea>
+  	<div class="form-group"><textarea required="" class="form-control" placeholder="Nội dung khuyến mãi" id="km-noidung" name = "km-noidung"></textarea>
   	</div>
 </div>
     <div>

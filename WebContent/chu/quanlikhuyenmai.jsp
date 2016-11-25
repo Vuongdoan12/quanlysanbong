@@ -76,7 +76,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">DANH SÁCH KHUYẾN MÃI</div>
 					<div class="panel-body">
-						<div><a href="themkhuyenmai.jsp"><button type="submit" class="btn btn-info">Thêm</button></a></div>
+						<div><a href="chu/themkhuyenmai.jsp"><button type="submit" class="btn btn-info">Thêm</button></a></div>
 						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -100,7 +100,7 @@
 						    		<td><%=item.getNgayKetThuc()%></td>
 						    		<td><%=item.getNoiDung()%></td>
 						    		<td><%=item.getChuSan().getTen()%></td>
-						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/admin/cat-del?cid=<%=item.getIdKhuyenMai()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/ChuXoaKhuyenMai?idKhuyenMai=<%=item.getIdKhuyenMai()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
 						    	</tr>
 						    	<%
 						    	}}

@@ -35,12 +35,16 @@ public class KhachDanhSachSanTrong extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String diaChi = request.getParameter("diaChi");
 		String loai = request.getParameter("loai");
 		String gioBatDau = request.getParameter("gioBatDau");
 		String gioKetThuc = request.getParameter("gioKetThuc");
 		String ngay = request.getParameter("ngay");
-		
+		request.setAttribute("gioBatDau", gioBatDau);
+		request.setAttribute("gioKetThuc", gioKetThuc);
+		request.setAttribute("ngay", ngay);
 		List<San> list = null;
 		list = KhachDanhSachSanTrongBO.getSanList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
 		request.setAttribute("danhSachSanTrong", list);

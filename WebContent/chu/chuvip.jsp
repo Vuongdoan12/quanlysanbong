@@ -52,7 +52,7 @@
 		<ul class="nav menu">
 			<li><a href="<%=request.getContextPath() %>/ChuDanhSachThue"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách đặt thuê</a></li>
 			<li  class="active"><a href="<%=request.getContextPath() %>/ChuDanhSachVip"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Danh sách vip</a></li>
-			<li><a href="<%=request.getContextPath() %>/ChuThemSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
+			<li><a href="<%=request.getContextPath() %>/ChuDanhSachSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân</a></li>
 			<li><a href="<%=request.getContextPath() %>/ChuQuanLyKhuyenMai"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí khuyến mãi</a></li>
 			<li><a href="<%=request.getContextPath() %>/ChuQuanLyNguoiDung"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí người dùng</a></li>
 			<li role="presentation" class="divider"></li>
@@ -96,7 +96,7 @@
 						    		<td><%=item.getNguoiThue().getSdt()%></td>
 						    		<td><%=item.getSoLanThue()%></td>
 						    		<td><%=item.getChuSan()%></td>
-						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/admin/cat-del?cid=<%=item.getIdVip()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/ChuXoaVip?idVip=<%=item.getIdVip()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
 						    	</tr>
 						    	<%
 						    	}}

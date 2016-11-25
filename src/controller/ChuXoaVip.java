@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,22 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.San;
-import bean.TranDau;
-import bo.KhachDanhSachSanTrongBO;
-import bo.KhachDanhSachTranBO;
+import taolao.MyReader;
 
 /**
- * Servlet implementation class DanhSachTran
+ * Servlet implementation class ChuXoaVip
  */
-@WebServlet("/KhachDanhSachTran")
-public class KhachDanhSachTran extends HttpServlet {
+@WebServlet("/ChuXoaVip")
+public class ChuXoaVip extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KhachDanhSachTran() {
+    public ChuXoaVip() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +31,13 @@ public class KhachDanhSachTran extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
-		String gioBatDau = request.getParameter("gioBatDau");
-		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");
-		
-		List<TranDau> list = null;
-		list = KhachDanhSachTranBO.getTranList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
-		request.setAttribute("danhSachSanTrong", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/danhsachsantrong.jsp");  
-	    dispatcher.forward(request, response);
+		String idVip = request.getParameter("idVip");
+		String url = "http://fas2016.somee.com/api/vip?id="+idVip;
+		String method = "DELETE";
+		String json = MyReader.readFromUrl(url, method);
+		System.out.println(json);
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ChuDanhSachVip");  
+		dispatcher.forward(request, response);
 	}
 
 	/**

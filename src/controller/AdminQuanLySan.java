@@ -9,23 +9,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.NguoiDung;
 import bean.San;
-import bean.TranDau;
-import bo.KhachDanhSachSanTrongBO;
-import bo.KhachDanhSachTranBO;
+import bo.AdminQuanLySanBO;
+import bo.ChuDanhSachSanBO;
 
 /**
- * Servlet implementation class DanhSachTran
+ * Servlet implementation class AdminQuanLySan
  */
-@WebServlet("/KhachDanhSachTran")
-public class KhachDanhSachTran extends HttpServlet {
+@WebServlet("/AdminQuanLySan")
+public class AdminQuanLySan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KhachDanhSachTran() {
+    public AdminQuanLySan() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +36,13 @@ public class KhachDanhSachTran extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
-		String gioBatDau = request.getParameter("gioBatDau");
-		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");
+		List<San> list = null;
 		
-		List<TranDau> list = null;
-		list = KhachDanhSachTranBO.getTranList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
-		request.setAttribute("danhSachSanTrong", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/danhsachsantrong.jsp");  
-	    dispatcher.forward(request, response);
+		list = AdminQuanLySanBO.getSanList();
+		request.setAttribute("danhSachSan", list);
+		
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/quanliSan.jsp");  
+	    dispatcher.forward(request, response);;
 	}
 
 	/**

@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,23 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import bean.San;
-import bean.TranDau;
-import bo.KhachDanhSachSanTrongBO;
-import bo.KhachDanhSachTranBO;
+import bean.NguoiDung;
+import bo.ChuThemKhuyenMaiBO;
+import bo.KhachDatSanBO;
 
 /**
- * Servlet implementation class DanhSachTran
+ * Servlet implementation class KhachDatSan
  */
-@WebServlet("/KhachDanhSachTran")
-public class KhachDanhSachTran extends HttpServlet {
+@WebServlet("/KhachDatSan")
+public class KhachDatSan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KhachDanhSachTran() {
+    public KhachDatSan() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +34,25 @@ public class KhachDanhSachTran extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
+		String idSan = request.getParameter("idSan");
+		String ngay = request.getParameter("ngay");
 		String gioBatDau = request.getParameter("gioBatDau");
 		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");
 		
-		List<TranDau> list = null;
-		list = KhachDanhSachTranBO.getTranList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
-		request.setAttribute("danhSachSanTrong", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/danhsachsantrong.jsp");  
-	    dispatcher.forward(request, response);
+		NguoiDung nguoiDung = new NguoiDung();
+		HttpSession session = request.getSession();
+		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
+		String thue = KhachDatSanBO.datSan(idSan, nguoiDung.getIdNguoiDung(),gioBatDau,gioKetThuc,ngay);
+		System.out.println(thue);
+		if ("true".equals(thue))
+		{
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ChuDanhSachKhuyenMai");  
+		    dispatcher.forward(request, response);
+		}else
+		{
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/themkhuyenmai.jsp");  
+		    dispatcher.forward(request, response);
+		}
 	}
 
 	/**

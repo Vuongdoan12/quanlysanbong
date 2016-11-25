@@ -1,3 +1,5 @@
+<%@page import="bean.San"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,19 +71,45 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Quản lí người dùng</div>
+					<div class="panel-heading">Danh sách sân trống</div>
 					<div class="panel-body">
 						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
-						        <th data-field="" data-checkbox="true" ></th>
+						        
 						        <th data-field="tensan" data-sortable="true">Tên sân</th>
 						        <th data-field="diachi" data-sortable="true">Địa chỉ</th>
 						        <th data-field="gia" data-sortable="true">Giá</th>
 						        <th data-field="loai" data-sortable="true">Loại</th>
 						        <th data-field="sodienthoai" data-sortable="true">Số điện thoại sân</th>
+						   		<th data-field="thue" data-sortable="true" >Đặt sân</th>
+						        <th data-field="taotran" data-sortable="true">Tạo trận</th>
 						    </tr>
 						    </thead>
+						     <tbody>
+						    	<%
+						    		List<San> listS = (List<San>)request.getAttribute("danhSachSanTrong");
+						    		if (listS!=null){
+						    		for(San item: listS){
+						    		%>
+						    	<tr>
+						    		
+						    		<td><%=item.getTen()%></td>
+						    		<td><%=item.getChuSan().getDiaChi()%></td>
+						    		<td><%=item.getGia()%></td>
+						    		<td><%=item.getLoai()%></td>
+						    		<td><%=item.getChuSan().getSdt() %></td>
+						    		<td>
+                						<a href="KhachDatSan?idSan=<%=item.getIdSan()%>&gioBatDau=<%=request.getAttribute("gioBatDau")%>&gioKetThuc=<%=request.getAttribute("gioKetThuc")%>&ngay=<%=request.getAttribute("ngay")%>">Edit</a>
+             						</td>
+             						<td>
+               						    <a href="KhachTaoTran?idSan=<%=item.getIdSan()%>">Delete</a>
+             						</td>
+						    	</tr>
+						    	<%
+						    	}}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>

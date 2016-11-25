@@ -10,19 +10,16 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
-import bean.KhuyenMai;
 import bean.NguoiDung;
 import bean.San;
 import bean.TinhTrang;
 import taolao.MyReader;
 
-public class KhachDanhSachSanTrongDao {
+public class AdminQuanLySanDao {
 
-	public static List<San> getSanList(String diaChi, String loai, String gioBatDau, String gioKetThuc, String ngay) {
+	public static List<San> getSanList() {
 		// TODO Auto-generated method stub
-		String url = "http://fas2016.somee.com/api/san?diaChi=" + diaChi +"&loai=" + loai+ "&gioBatDau=" + gioBatDau + "&gioKetThuc="+ gioKetThuc + "&ngay="+ ngay;
-		//String url = "http://fas2016.somee.com/api/san?diaChi=Quảng&loai=7&gioBatDau=1&gioKetThuc=4&ngay=2016-11-28";
-
+		String url = "http://fas2016.somee.com/api/san";
 		String method = "GET";
 		List<San> sans = new ArrayList<San>();
 		try {
@@ -35,7 +32,7 @@ public class KhachDanhSachSanTrongDao {
 			San san = new San();
 			NguoiDung nguoiDung = new NguoiDung();
 			TinhTrang tinhtrang = new TinhTrang();
-			System.out.println(url);
+			
             try {
 				a = new JSONArray(json);
 				 for (int i = 0; i < a.length(); i++) {

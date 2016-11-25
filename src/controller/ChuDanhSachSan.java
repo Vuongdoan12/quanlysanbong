@@ -42,7 +42,7 @@ public class ChuDanhSachSan extends HttpServlet {
 		HttpSession session = request.getSession();
 		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
 		list = ChuDanhSachSanBO.getSanList(nguoiDung.getIdNguoiDung());
-		request.setAttribute("danhSachThue", list);
+		request.setAttribute("danhSachSan", list);
 		
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/quanlisan.jsp");  
 	    dispatcher.forward(request, response);;

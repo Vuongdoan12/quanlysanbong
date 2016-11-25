@@ -8,18 +8,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.NguoiDung;
+import bo.ChuThemKhuyenMaiBO;
+import bo.ChuThemSanBO;
 
 /**
- * Servlet implementation class TimKiemSan
+ * Servlet implementation class ChuThemKhuyenMai
  */
-@WebServlet("/KhachTimKiemSan")
-public class KhachTimKiemSan extends HttpServlet {
+@WebServlet("/chu/ChuThemKhuyenMai")
+public class ChuThemKhuyenMai extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KhachTimKiemSan() {
+    public ChuThemKhuyenMai() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,28 +34,25 @@ public class KhachTimKiemSan extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
-		String gioBatDau = request.getParameter("gioBatDau");
-		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");*/
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		String ngaybatdau = request.getParameter("km-ngaybatdau");
+		String ngayketthuc = request.getParameter("km-ngayketthuc");
+		String noidung = request.getParameter("km-noidung");
 		
-		String bt = request.getParameter("bttimsan");
+		NguoiDung nguoiDung = new NguoiDung();
+		HttpSession session = request.getSession();
+		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
 		
-		if("1".equals(bt))
+		String them = ChuThemKhuyenMaiBO.themKhuyenMai(nguoiDung.getIdNguoiDung(),ngaybatdau,ngayketthuc,noidung);
+		System.out.println(them);
+		if ("true".equals(them))
 		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachDanhSachSanTrong");  
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ChuDanhSachKhuyenMai");  
+		    dispatcher.forward(request, response);
+		}else
+		{
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/themkhuyenmai.jsp");  
 		    dispatcher.forward(request, response);
 		}
-		else
-		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachDanhSachTran");  
-		    dispatcher.forward(request, response);
-		}
-		
-		
 	}
 
 	/**
