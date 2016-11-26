@@ -60,8 +60,8 @@
 		<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
-				<li class="active"><a href="<%=request.getContextPath() %>/KhachTranDaTao"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ TẠO</a></li>
-				<li><a href="<%=request.getContextPath() %>/KhanhTranDaThamGia"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ THAM GIA</a></li>
+				<li class="active"><a href="<%=request.getContextPath() %>/KhachQuanLyTran"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ TẠO</a></li>
+				<li><a href="<%=request.getContextPath() %>/KhachTranDaThamGia"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ THAM GIA</a></li>
 			</ol>
 		</div><!--/.row-->
 				
