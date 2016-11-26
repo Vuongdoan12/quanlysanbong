@@ -12,7 +12,7 @@
 
 <div class="container"> 
 <form class="form-horizontal" action = "DoLogin" method = "GET">
- <h1 class="text-center">Chào Mừng đến với Sân Bóng Mini</h1> 
+ <h1 class="text-center">CHÀO MỪNG ĐẾN VỚI SÂN BÒNG MINI</h1> 
  <div class="row"> 
   <div class="col-md-3 col-md-offset-4"> 
    <h1><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> FAST 2016
