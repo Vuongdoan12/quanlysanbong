@@ -1,3 +1,5 @@
+<%@page import="bean.TranDau"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -82,11 +84,36 @@
 						        <th data-field="giobatdau" data-sortable="true">Giờ bắt đầu</th>
 						        <th data-field="gioketthuc" data-sortable="true">Giờ kết thúc</th>
 						        <th data-field="ngay" data-sortable="true">Ngày</th>
-						        <th data-field="soluongconlai" data-sortable="true">Số lượng còn lại</th>
+						        <th data-field="soluongtoida" data-sortable="true">Số lượng tối đa</th>
+						        <th data-field="soluonghienco" data-sortable="true">Số lượng hiện có</th>
 						        <th data-field="sodienthoai" data-sortable="true">Số điện thoại sân</th>
 						        <th data-field="thamgia" data-sortable="true">Tham gia</th>
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<TranDau> listS = (List<TranDau>)request.getAttribute("danhSachThue");
+						    		if (listS!=null){
+						    		for(TranDau item: listS){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getThue().getSan().getTen()%></td>
+						    		<td><%=item.getThue().getSan().getChuSan().getDiaChi()%></td>
+						    		<td><%=item.getThue().getSan().getGia()%></td>
+						    		<td><%=item.getThue().getSan().getLoai()%></td>
+						    		<td><%=item.getThue().getGioBatDau() %></td>
+						    		<td><%=item.getThue().getGioKetThuc() %></td>
+						    		<td><%=item.getThue().getNgay() %></td>
+						    		<td><%=item.getSoLuongToiDa() %></td>
+						    		<td><%=item.getSoLuongHienCo() %></td>
+						    		<td><%=item.getThue().getSan().getChuSan().getSdt() %></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/KhachXoaSanDat?id=<%=item.getIdTranDau()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    	</tr>
+						    	<%
+						    	}}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>
