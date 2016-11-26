@@ -52,8 +52,8 @@
 		<ul class="nav menu">
 			<li><a href="<%=request.getContextPath() %>/KhanhDanhSachKhuyenMai"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
 			<li><a href="<%=request.getContextPath() %>/KhachTimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
-			<li class="active"><a href="<%=request.getContextPath() %>/KhanhDatSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
-			<li><a href="<%=request.getContextPath() %>/KhachDanhSachTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
+			<li class="active"><a href="<%=request.getContextPath() %>/KhachQuanLySanDat"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
+			<li><a href="<%=request.getContextPath() %>/KhachQuanLyTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
 			<li><a href="<%=request.getContextPath() %>/KhanhQuanLyTaiKhoan"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -100,10 +100,10 @@
 						    		<td><%=item.getLoai()%></td>
 						    		<td><%=item.getChuSan().getSdt() %></td>
 						    		<td>
-                						<a href="KhachDatSan?idSan=<%=item.getIdSan()%>&gioBatDau=<%=request.getAttribute("gioBatDau")%>&gioKetThuc=<%=request.getAttribute("gioKetThuc")%>&ngay=<%=request.getAttribute("ngay")%>">Edit</a>
+                						<a href="KhachDatSan?idSan=<%=item.getIdSan()%>&gioBatDau=<%=request.getAttribute("gioBatDau")%>&gioKetThuc=<%=request.getAttribute("gioKetThuc")%>&ngay=<%=request.getAttribute("ngay")%>">Đặt thuê</a>
              						</td>
              						<td>
-               						    <a href="KhachTaoTran?idSan=<%=item.getIdSan()%>">Delete</a>
+               						    <a href="KhachTaoTran?idSan=<%=item.getIdSan()%>&gioBatDau=<%=request.getAttribute("gioBatDau")%>&gioKetThuc=<%=request.getAttribute("gioKetThuc")%>&ngay=<%=request.getAttribute("ngay")%>&soLuongToiDa=<%=item.getLoai()+item.getLoai()%>">Tạo trận</a>
              						</td>
 						    	</tr>
 						    	<%

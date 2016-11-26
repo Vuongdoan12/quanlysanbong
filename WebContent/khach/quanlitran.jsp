@@ -1,6 +1,3 @@
-<%@page import="bean.NguoiDung"%>
-<%@page import="bean.TranDau"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -53,8 +50,8 @@
 		<ul class="nav menu">
 			<li><a href="<%=request.getContextPath() %>/KhanhDanhSachKhuyenMai"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
 			<li><a href="<%=request.getContextPath() %>/KhachTimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
-			<li class="active"><a href="<%=request.getContextPath() %>/KhachQuanLySanDat"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
-			<li><a href="<%=request.getContextPath() %>/KhachQuanLyTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
+			<li class="active"><a href="<%=request.getContextPath() %>/KhachQuanLySan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
+			<li><a href="<%=request.getContextPath() %>/KhachQuanLyTranTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
 			<li><a href="<%=request.getContextPath() %>/KhanhQuanLyTaiKhoan"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -72,9 +69,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">DANH SÁCH TRẬN</div>
+					<div class="panel-heading">Quản lí người dùng</div>
 					<div class="panel-body">
-						<div><a href=""><button type="reset" class="btn btn-info">Làm mới</button></a></div>
 						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -86,10 +82,11 @@
 						        <th data-field="giobatdau" data-sortable="true">Giờ bắt đầu</th>
 						        <th data-field="gioketthuc" data-sortable="true">Giờ kết thúc</th>
 						        <th data-field="ngay" data-sortable="true">Ngày</th>
-						        <th data-field="thamgia" data-sortable="true">Quản lý</th>
+						        <th data-field="soluongconlai" data-sortable="true">Số lượng còn lại</th>
+						        <th data-field="sodienthoai" data-sortable="true">Số điện thoại sân</th>
+						        <th data-field="thamgia" data-sortable="true">Tham gia</th>
 						    </tr>
 						    </thead>
-						  
 						</table>
 					</div>
 				</div>
