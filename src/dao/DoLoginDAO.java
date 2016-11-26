@@ -12,6 +12,7 @@ public class DoLoginDAO {
 	public static NguoiDung getLogin(String userName, String password) {
 		// TODO Auto-generated method stub
 		String url = "http://fas2016.somee.com/api/nguoidung?tenDangNhap="+userName+"&matKhau="+password;
+		//String url = "http://localhost:35353/api/nguoidung?tenDangNhap="+userName+"&matKhau="+password;
 		String method = "GET";
 		Gson gson = new Gson();
 		NguoiDung nguoidung = new NguoiDung();

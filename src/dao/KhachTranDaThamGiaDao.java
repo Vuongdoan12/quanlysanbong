@@ -15,11 +15,11 @@ import bean.Thue;
 import bean.TranDau;
 import taolao.MyReader;
 
-public class KhachQuanLyTranDao {
+public class KhachTranDaThamGiaDao {
 
 	public static List<TranDau> getTranList(int idNguoiDung) {
 		// TODO Auto-generated method stub
-		String url = "http://fas2016.somee.com/api/trandau?idNguoiThue=" + idNguoiDung;
+String url = "http://fas2016.somee.com/api/trandau?idNguoiThue=" + idNguoiDung+"&isThamGia=1";
 		
 		String method = "GET";
 		List<TranDau> trandaus = new ArrayList<TranDau>();
