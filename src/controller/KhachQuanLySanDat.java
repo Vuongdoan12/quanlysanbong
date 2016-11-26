@@ -9,23 +9,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import bean.San;
-import bean.TranDau;
-import bo.KhachDanhSachSanTrongBO;
-import bo.KhachDanhSachTranBO;
+import bean.NguoiDung;
+import bean.Thue;
+import bo.ChuDanhSachThueBO;
+import bo.KhachDanhSachThueBO;
 
 /**
- * Servlet implementation class DanhSachTran
+ * Servlet implementation class KhachQuanLySanDat
  */
-@WebServlet("/KhachDanhSachTran")
-public class KhachDanhSachTran extends HttpServlet {
+@WebServlet("/KhachQuanLySanDat")
+public class KhachQuanLySanDat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KhachDanhSachTran() {
+    public KhachQuanLySanDat() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,16 +36,13 @@ public class KhachDanhSachTran extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String diaChi = request.getParameter("diaChi");
-		String loai = request.getParameter("loai");
-		String gioBatDau = request.getParameter("gioBatDau");
-		String gioKetThuc = request.getParameter("gioKetThuc");
-		String ngay = request.getParameter("ngay");
-		
-		List<TranDau> list = null;
-		list = KhachDanhSachTranBO.getTranList(diaChi, loai, gioBatDau, gioKetThuc, ngay);
-		request.setAttribute("danhSachSanTrong", list);
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/danhsachtran.jsp");  
+		List<Thue> list = null;
+		NguoiDung nguoiDung = new NguoiDung();
+		HttpSession session = request.getSession();
+		nguoiDung = (NguoiDung) session.getAttribute("nguoiDung");
+		list = KhachDanhSachThueBO.getThueList(nguoiDung.getIdNguoiDung());
+		request.setAttribute("danhSachThue", list);
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/khach/quanlisandat.jsp");  
 	    dispatcher.forward(request, response);
 	}
 

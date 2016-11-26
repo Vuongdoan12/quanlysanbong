@@ -50,8 +50,8 @@
 		<ul class="nav menu">
 			<li><a href="<%=request.getContextPath() %>/KhanhDanhSachKhuyenMai"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Danh sách khuyến mãi</a></li>
 			<li><a href="<%=request.getContextPath() %>/KhachTimSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Tìm sân</a></li>
-			<li class="active"><a href="<%=request.getContextPath() %>/KhanhDatSan"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
-			<li><a href="<%=request.getContextPath() %>/KhachDanhSachTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
+			<li><a href="<%=request.getContextPath() %>/KhachQuanLySanDat"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí sân đặt</a></li>
+			<li class="active"><a href="<%=request.getContextPath() %>/KhachQuanLyTran"><svg class="glyph stroked app window with content"><use xlink:href="#stroked-app-window-with-content"/></use></svg>Quản lí trận</a></li>
 			<li><a href="<%=request.getContextPath() %>/KhanhQuanLyTaiKhoan"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></use></svg>Quản lí tài khoản</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -62,6 +62,8 @@
 			<ol class="breadcrumb">
 				<li class="active"><a href="<%=request.getContextPath() %>/KhachTranDaTao"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ TẠO</a></li>
 				<li><a href="<%=request.getContextPath() %>/KhanhTranDaThamGia"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ THAM GIA</a></li>
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Icons</li>
 			</ol>
 		</div><!--/.row-->
 				

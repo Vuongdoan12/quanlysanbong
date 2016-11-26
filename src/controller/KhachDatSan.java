@@ -46,11 +46,11 @@ public class KhachDatSan extends HttpServlet {
 		System.out.println(thue);
 		if ("true".equals(thue))
 		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ChuDanhSachKhuyenMai");  
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachQuanLySanDat");  
 		    dispatcher.forward(request, response);
 		}else
 		{
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/chu/themkhuyenmai.jsp");  
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/KhachDanhSachSanTrong");  
 		    dispatcher.forward(request, response);
 		}
 	}
