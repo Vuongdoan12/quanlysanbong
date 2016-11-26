@@ -1,3 +1,5 @@
+<%@page import="bean.Thue"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,9 +71,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Quản lí người dùng</div>
+					<div class="panel-heading">DANH SÁCH SÂN ĐANG ĐẶT</div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="" data-checkbox="true" ></th>
@@ -82,11 +84,32 @@
 						        <th data-field="giobatdau" data-sortable="true">Giờ bắt đầu</th>
 						        <th data-field="gioketthuc" data-sortable="true">Giờ kết thúc</th>
 						        <th data-field="ngay" data-sortable="true">Ngày</th>
-						        <th data-field="soluongconlai" data-sortable="true">Số lượng còn lại</th>
 						        <th data-field="sodienthoai" data-sortable="true">Số điện thoại sân</th>
-						        <th data-field="thamgia" data-sortable="true">Tham gia</th>
+						        <th data-field="chucnang" data-sortable="true">Chức năng</th>
 						    </tr>
 						    </thead>
+						    <tbody>
+						    	<%
+						    		List<Thue> listS = (List<Thue>)request.getAttribute("danhSachThue");
+						    		if (listS!=null){
+						    		for(Thue item: listS){
+						    		%>
+						    	<tr>
+						    		<td></td>
+						    		<td><%=item.getSan().getTen()%></td>
+						    		<td><%=item.getSan().getChuSan().getDiaChi()%></td>
+						    		<td><%=item.getSan().getGia()%></td>
+						    		<td><%=item.getSan().getLoai()%></td>
+						    		<td><%=item.getGioBatDau() %></td>
+						    		<td><%=item.getGioKetThuc() %></td>
+						    		<td><%=item.getNgay() %></td>
+						    		<td><%=item.getSan().getChuSan().getSdt() %></td>
+						    		<td><a onclick= "return confirm('Bạn có thực sự muốn xóa không?')"href="<%=request.getContextPath()%>/KhachXoaSanDat?id=<%=item.getIdThue()%>">Xóa <img src="<%=request.getContextPath() %>/templates/admin/images/bin.gif" width="16" height="16" alt="delete" /></a></td>
+						    	</tr>
+						    	<%
+						    	}}
+						    	%>
+						    </tbody>
 						</table>
 					</div>
 				</div>

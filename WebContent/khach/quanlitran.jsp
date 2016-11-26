@@ -62,8 +62,6 @@
 			<ol class="breadcrumb">
 				<li class="active"><a href="<%=request.getContextPath() %>/KhachTranDaTao"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ TẠO</a></li>
 				<li><a href="<%=request.getContextPath() %>/KhanhTranDaThamGia"><svg class="glyph stroked male user "></svg>TRẬN ĐÃ THAM GIA</a></li>
-				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Icons</li>
 			</ol>
 		</div><!--/.row-->
 				
@@ -71,9 +69,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Quản lí người dùng</div>
+					<div class="panel-heading">TRẬN ĐÃ TẠO</div>
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data2.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table" data-url="true"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="" data-checkbox="true" ></th>
